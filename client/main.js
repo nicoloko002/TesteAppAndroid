@@ -1,17 +1,28 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-var modulo = angular.module('teste', [
-  uiRouter
-]).config(function($stateProvider) {
-  $stateProvider.state({
-    name: 'about',
-    url: '/about',
-    template: '<h3>SOBRE!!!</h3>'
+import checklistList from '../imports/components/checklistList/checklistList'
+import checklistForm from '../imports/components/checklistForm/checklistForm'
+
+angular.module('app-teste', [
+  uiRouter,
+  checklistList.name,
+  checklistForm.name
+])
+  .config(function($urlServiceProvider, $stateProvider) {
+    $stateProvider
+      .state({
+        name: 'checklistList',
+        url: '/checklistList',
+        template: '<checklist-list></checklist-list>'
+      })
+      .state({
+        name: 'checklistForm',
+        url: '/checklistForm',
+        template: '<checklist-form></checklist-form>'
+      });
+
+    $urlServiceProvider.rules.otherwise({
+      state: 'checklistList'
+    });
   });
-  $stateProvider.state({
-    name: 'config',
-    url: '/config',
-    template: '<h2>CONFIGS!!!</h2>'
-  });
-});
