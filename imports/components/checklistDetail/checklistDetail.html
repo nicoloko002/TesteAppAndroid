@@ -1,0 +1,38 @@
+<header class="superior-menu">
+  <span class="col-xs-3">
+    <button type="button" class="btn btn-primary" aria-label="Left Align" ui-sref="checklistList">
+      <span class="glyphicon glyphicon-arrow-left"></span>
+    </button>
+  </span>
+  <span class="col-xs-6 title">
+    {{ $ctrl.checklist.text }}
+  </span>
+  <span class="col-xs-3">
+    <button type="button" class="btn btn-primary" aria-label="Rigth Align">
+      <span class="glyphicon glyphicon-cog"></span>
+    </button>
+  </span>
+</header>
+
+<div>
+  <div>
+    <span class="col-xs-12 col-sm-6">Criado em {{$ctrl.creationDate}}</span>
+    <span class="col-xs-12 col-sm-6">Ordenação: <select ng-options="sorting.label for sorting in $ctrl.sortings" ng-model="$ctrl.sorting"></select></span>
+  </div>
+
+  <form class="new-task" ng-submit="$ctrl.addTask()">
+    <input class="task-input" ng-model="$ctrl.newTask" type="text" name="text" placeholder="Digite e confirme para criar uma nova tarefa"/>
+  </form>
+
+  <table class="table table-hover">
+    <tr ng-repeat="task in $ctrl.tasks" ng-class="{'checked': task.checked}">
+      <td>{{$index + 1}}</td>
+      <td><input type="checkbox" ng-checked="task.checked" ng-click="$ctrl.setChecked(task)"/> <span class="text">{{task.text}}</span></td>
+      <td>
+        <button type="button" class="btn btn-danger" ng-click="$ctrl.removeTask(task)">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

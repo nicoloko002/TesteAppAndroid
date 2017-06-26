@@ -16,6 +16,10 @@ class ChecklistListCtrl {
       }
     })
   }
+
+  removeChecklist(checklist) {
+    Meteor.call('checklist.remove', checklist._id);
+  }
 }
 
 export default angular.module('checklistList', [

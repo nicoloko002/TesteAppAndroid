@@ -30,10 +30,8 @@ body {
 }
 
 .glyphicon {
-  color: blue;
   width: 100%;
   height: 100%;
-
 }
 
 header .title {
@@ -44,10 +42,25 @@ header .title {
 .superior-menu .btn {
   display:block;
   border-radius: 50%;
-  background-color: blue;
 }
 
 .superior-menu .glyphicon {
   font-size: 50px;
   color: CornflowerBlue;
+}
+
+.btn-danger .glyphicon {
+  color: Salmon;
+}
+
+tr.checked {
+    color: #888;
+}
+
+.checked .text {
+    text-decoration: line-through;
+}
+
+.task-input {
+  width: 100%
 }

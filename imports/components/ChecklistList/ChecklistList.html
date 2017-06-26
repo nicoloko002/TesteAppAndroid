@@ -1,15 +1,15 @@
 <header class="superior-menu">
-  <span class="col-xs-3">
-    <button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="checklistForm">
-      <span class="glyphicon glyphicon-plus"></span>
+  <span class="col-xs-2">
+    <button type="button" class="btn btn-default" aria-label="Rigth Align">
+      <span class="glyphicon glyphicon-menu-hamburger"></span>
     </button>
   </span>
-  <span class="col-xs-6 title">
+  <span class="col-xs-8 title">
     Checklists
   </span>
-  <span class="col-xs-3">
-    <button type="button" class="btn btn-default" aria-label="Rigth Align">
-      <span class="glyphicon glyphicon-cog"></span>
+  <span class="col-xs-2">
+    <button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="checklistForm">
+      <span class="glyphicon glyphicon-plus"></span>
     </button>
   </span>
 </header>
@@ -18,8 +18,12 @@
   <table class="table table-hover">
     <tr ng-repeat="checklist in $ctrl.checklists">
       <td>{{$index + 1}}</td>
-      <td>{{checklist.text}}</td>
-      <td>ICONS</td>
+      <td><a ui-sref="checklistDetail({checklistId: checklist._id})">{{checklist.text}}</a></td>
+      <td>
+        <button type="button" class="btn btn-danger" ng-click="$ctrl.removeChecklist(checklist)">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </td>
     </tr>
   </table>
 </div>
