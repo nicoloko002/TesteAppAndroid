@@ -28,6 +28,7 @@ body {
   color: red;
   font-weight: bold;
 }
+<<<<<<< HEAD
 
 .glyphicon {
   width: 100%;
@@ -64,3 +65,5 @@ tr.checked {
 .task-input {
   width: 100%
 }
+=======
+>>>>>>> 7edde060e161c8085a89dcece6a1a7812df932c3
