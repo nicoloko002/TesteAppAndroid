@@ -1,13 +1,13 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-import { Checklists } from '../imports/api/checklists.js';
-
 import checklistList from '../imports/components/checklistList/checklistList'
 import checklistDetail from '../imports/components/checklistDetail/checklistDetail'
 import checklistForm from '../imports/components/checklistForm/checklistForm'
 
-angular.module('app-teste', [
+import { Checklists } from '../imports/api/checklists.js';
+
+angular.module('checkListApp', [
   uiRouter,
   checklistList.name,
   checklistDetail.name,
