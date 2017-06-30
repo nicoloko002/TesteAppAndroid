@@ -18,7 +18,8 @@ class ChecklistListCtrl {
   }
 
   removeChecklist(checklist) {
-    Meteor.call('checklist.remove', checklist._id);
+    if (window.confirm('Deseja realmente excluir esta checklist?'))
+      Meteor.call('checklists.remove', checklist._id);
   }
 }
 

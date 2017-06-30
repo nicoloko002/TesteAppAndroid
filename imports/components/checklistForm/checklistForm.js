@@ -15,7 +15,7 @@ class ChecklistFormCtrl {
   }
 
   addCheckList(newChecklist) {
-    Meteor.call('checklist.insert', newChecklist);
+    Meteor.call('checklists.insert', newChecklist);
     this.state.go('checklistList');
   }
 }

@@ -13,6 +13,7 @@ Meteor.methods({
       checklistId: checklistId,
       createdAt: new Date(),
       finalizedAt: null,
+      checked: false,
       text: text
     });
   },

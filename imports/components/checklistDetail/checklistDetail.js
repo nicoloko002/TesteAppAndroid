@@ -53,24 +53,28 @@ class checklistDetail {
 
   addTask() {
     Meteor.call('tasks.insert', this.checklistId, this.newTask);
+    Meteor.call('checklists.changeStatus', this.checklistId);
 
     this.newTask = '';
   }
 
   removeTask(task) {
-    if (window.confirm('Deseja realmente excluir esta tarefa?'))
+    if (window.confirm('Deseja realmente excluir esta tarefa?')) {
       Meteor.call('tasks.remove', task._id);
+      Meteor.call('checklists.changeStatus', task.checklistId);
+    }
   }
 
   setChecked(task) {
     let date;
 
     if (task.checked)
-      date = null
+      date = null;
     else
       date = new Date();
 
     Meteor.call('tasks.setChecked', task._id, date, !task.checked);
+    Meteor.call('checklists.changeStatus', task.checklistId);
   }
 }
 
