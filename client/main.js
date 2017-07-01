@@ -21,12 +21,15 @@ angular.module('checkListApp', [
       })
       .state({
         name: 'checklistForm',
-        url: '/checklistForm',
+        url: '/checklistForm/{checklistId}',
         template: '<checklist-form></checklist-form>'
       })
       .state({
         name: 'checklistDetail',
         url: '/checklist/{checklistId}',
+        params: {
+          checklistId: null
+        },
         template: '<checklist-detail></checklist-detail>'
       });
 

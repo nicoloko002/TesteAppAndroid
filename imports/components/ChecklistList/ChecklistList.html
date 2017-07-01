@@ -1,6 +1,6 @@
 <header class="superior-menu">
   <span class="col-xs-3">
-    <button type="button" class="btn btn-default" aria-label="Rigth Align">
+    <button type="button" class="btn btn-primary">
       <span class="glyphicon glyphicon-menu-hamburger"></span>
     </button>
   </span>
@@ -8,7 +8,7 @@
     Checklists
   </span>
   <span class="col-xs-3">
-    <button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="checklistForm">
+    <button type="button" class="btn btn-primary pull-right" ui-sref="checklistForm({checklistId: 'new'})">
       <span class="glyphicon glyphicon-plus"></span>
     </button>
   </span>
@@ -20,7 +20,7 @@
       <td>{{$index + 1}}</td>
       <td><a class="text" ui-sref="checklistDetail({checklistId: checklist._id})">{{checklist.text}}</a></td>
       <td>
-        <button type="button" class="btn btn-warning" ui-sref="checklistForm(checklist)">
+        <button type="button" class="btn btn-warning" ui-sref="checklistForm({checklistId: checklist._id})">
           <span class="glyphicon glyphicon-cog"></span>
         </button>
         <button type="button" class="btn btn-primary" ng-click="$ctrl.duplicateChecklist(checklist)">

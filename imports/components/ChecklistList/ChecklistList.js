@@ -21,6 +21,11 @@ class ChecklistListCtrl {
     if (window.confirm('Deseja realmente excluir esta checklist?'))
       Meteor.call('checklists.remove', checklist._id);
   }
+
+  duplicateChecklist(checklist) {
+    if (window.confirm('Será criada uma checklist com os mesmas tarefas, mas não finalizadas. Deseja prosseguir?'))
+      Meteor.call('checklists.duplicate', checklist);
+  }
 }
 
 export default angular.module('checklistList', [

@@ -8,15 +8,30 @@ import { Checklists } from '../../api/checklists.js';
 import template from './checklistForm.html';
 
 class ChecklistFormCtrl {
-  constructor($scope, $state) {
+  constructor($scope, $state, $stateParams) {
     $scope.viewModel(this);
 
     this.state = $state;
+    this.checklistId = $stateParams.checklistId;
+
+    if (this.checklistId === 'new')
+      this.checklist = {};
+    else
+      this.checklist = Checklists.findOne({_id: $stateParams.checklistId});
   }
 
-  addCheckList(newChecklist) {
-    Meteor.call('checklists.insert', newChecklist);
-    this.state.go('checklistList');
+  addCheckList() {
+    if (this.checklistId === 'new') {
+      let checklistIda;
+
+      Meteor.call('checklists.insert', this.checklist, function(err, id) {
+        checklistIda = id;
+      });
+      this.state.go('checklistDetail', {checklistId: checklistIda});
+    } else {
+      Meteor.call('checklists.update', this.checklist);
+      this.state.go('checklistList');
+    }
   }
 }
 
@@ -26,5 +41,5 @@ export default angular.module('checklistForm', [
 ])
   .component('checklistForm', {
     templateUrl: 'imports/components/checklistForm/checklistForm.html',
-    controller: ['$scope', '$state', ChecklistFormCtrl]
+    controller: ['$scope', '$state', '$stateParams', ChecklistFormCtrl]
   });

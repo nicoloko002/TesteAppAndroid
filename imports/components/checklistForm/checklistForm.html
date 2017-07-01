@@ -1,6 +1,6 @@
 <header class="superior-menu">
   <span class="col-xs-3">
-    <button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="checklistList">
+    <button type="button" class="btn btn-primary" aria-label="Left Align" ui-sref="checklistList">
       <span class="glyphicon glyphicon-arrow-left"></span>
     </button>
   </span>
@@ -8,13 +8,13 @@
     Cadastro
   </span>
   <span class="col-xs-3">
-    <button type="button" class="btn btn-default" aria-label="Rigth Align">
+    <button type="button" class="btn btn-primary pull-right" aria-label="Rigth Align">
       <span class="glyphicon glyphicon-ok"></span>
     </button>
   </span>
 </header>
 
 <form ng-submit="$ctrl.addCheckList($ctrl.newChecklist)">
-  <label>Nome <input type="text" ng-model="$ctrl.newChecklist"></label>
+  <label>Nome <input type="text" ng-model="$ctrl.checklist.text"></label>
   <input type="submit" class="btn btn-primary" value="Confirmar">
 </form>

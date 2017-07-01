@@ -36,7 +36,7 @@ body {
 
 .title {
   font-size: 40px;
-  align-items: center;
+  text-align: center;
   font-weight: bold;
 }
 
@@ -50,13 +50,8 @@ body {
   border-radius: 50%;
 }
 
-.superior-menu .glyphicon {
+.superior-menu .btn .glyphicon {
   font-size: 50px;
-  color: CornflowerBlue;
-}
-
-.btn-danger .glyphicon {
-  color: Salmon;
 }
 
 tr .checked {
