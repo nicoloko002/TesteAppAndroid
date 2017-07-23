@@ -22,12 +22,11 @@ class ChecklistFormCtrl {
 
   addCheckList() {
     if (this.checklistId === 'new') {
-      let checklistIda;
+      let state = this.state;
 
-      Meteor.call('checklists.insert', this.checklist, function(err, id) {
-        checklistIda = id;
+      Meteor.call('checklists.insert', this.checklist, function(err, result) {
+        state.go('checklistDetail', {checklistId: result});
       });
-      this.state.go('checklistDetail', {checklistId: checklistIda});
     } else {
       Meteor.call('checklists.update', this.checklist);
       this.state.go('checklistList');

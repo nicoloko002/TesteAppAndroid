@@ -27,9 +27,6 @@ angular.module('checkListApp', [
       .state({
         name: 'checklistDetail',
         url: '/checklist/{checklistId}',
-        params: {
-          checklistId: null
-        },
         template: '<checklist-detail></checklist-detail>'
       });
 
