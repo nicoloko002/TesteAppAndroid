@@ -2,7 +2,11 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
-export const Tasks = new Mongo.Collection('tasks');
+// export const Tasks = new Mongo.Collection('tasks');
+export const Tasks = new Ground.Collection('tasks');
+
+// if (Meteor.isCordova) {
+// }
 
 Meteor.methods({
   'tasks.insert' (checklistId, text) {
@@ -13,8 +17,19 @@ Meteor.methods({
       checklistId: checklistId,
       createdAt: new Date(),
       finalizedAt: null,
+      prevDate: null,
       checked: false,
       text: text
+    });
+  },
+  'tasks.update' (task) {
+    check(task.text, String);
+
+    Tasks.update({_id: task._id}, {
+      $set: {
+          text: task.text,
+          prevDate: task.prevDate
+      }
     });
   },
   'tasks.remove' (taskId) {
@@ -34,7 +49,3 @@ Meteor.methods({
     });
   }
 });
-
-if (Meteor.isCordova) {
-  Ground.Collection(Tasks);
-}

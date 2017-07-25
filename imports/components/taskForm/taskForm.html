@@ -1,11 +1,11 @@
 <header class="superior-menu">
   <span class="col-xs-3">
-    <button type="button" class="btn btn-primary" aria-label="Left Align" ui-sref="checklistList">
+    <button type="button" class="btn btn-primary" aria-label="Left Align" ui-sref="checklistDetail({ checklistId: $ctrl.checklistId })">
       <span class="glyphicon glyphicon-arrow-left"></span>
     </button>
   </span>
   <span class="col-xs-6 title">
-    Cadastro
+    Tarefa
   </span>
   <span class="col-xs-3">
     <button type="button" class="btn btn-primary pull-right">
@@ -14,7 +14,8 @@
   </span>
 </header>
 
-<form ng-submit="$ctrl.addCheckList($ctrl.newChecklist)">
-  <label>Nome <input type="text" ng-model="$ctrl.checklist.text"></label>
+<form ng-submit="$ctrl.updateTask($ctrl.task)">
+  <label>Nome <input type="text" ng-model="$ctrl.task.text"></label>
+  <label>Date de previsão <input type="text" id="prev-date" ng-model="$ctrl.task.prevDate"></label>
   <input type="submit" class="btn btn-primary" value="Confirmar">
 </form>

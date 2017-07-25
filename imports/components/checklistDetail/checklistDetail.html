@@ -32,6 +32,9 @@
       <td>{{$index + 1}}</td>
       <td><input type="checkbox" ng-checked="task.checked" ng-click="$ctrl.setChecked(task)"/> <span class="text">{{task.text}}</span></td>
       <td>
+        <button type="button" class="btn btn-warning" ui-sref="taskForm({checklistId: task.checklistId, taskId: task._id})">
+          <span class="glyphicon glyphicon-cog"></span>
+        </button>
         <button type="button" class="btn btn-danger" ng-click="$ctrl.removeTask(task)">
           <span class="glyphicon glyphicon-remove"></span>
         </button>

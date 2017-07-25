@@ -4,7 +4,8 @@ import { check } from 'meteor/check';
 
 import { Tasks } from './tasks.js';
 
-export const Checklists = new Mongo.Collection('checklists');
+// export const Checklists = new Mongo.Collection('checklists');
+export const Checklists = new Ground.Collection('checklists');;
 
 Meteor.methods({
   'checklists.insert' (checklist) {
@@ -68,7 +69,3 @@ Meteor.methods({
       });
   }
 });
-
-if (Meteor.isCordova) {
-  Ground.Collection(Checklists);
-}
